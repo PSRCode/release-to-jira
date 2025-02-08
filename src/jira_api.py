@@ -8,7 +8,7 @@ PROJECT = os.environ["INPUT_JIRA_PROJECT"]
 USER = os.environ["INPUT_JIRA_USER"]
 TOKEN = os.environ["INPUT_JIRA_TOKEN"]
 
-base_url = f"{BASE}/rest/api/3/"
+base_url = f"{BASE}/rest/api/2/"
 project_path = f"project/{PROJECT}"
 auth = HTTPBasicAuth(USER, TOKEN)
 
