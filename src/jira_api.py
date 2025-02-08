@@ -10,21 +10,21 @@ TOKEN = os.environ["INPUT_JIRA_TOKEN"]
 
 base_url = f"{BASE}/rest/api/2/"
 project_path = f"project/{PROJECT}"
-auth = HTTPBasicAuth(USER, TOKEN)
+headers = {"Authorization": f"Bearer {TOKEN}"}
 
 
 def get(endpoint, params=None):
     return requests.get(
-        base_url + project_path + "/" + endpoint, params=params, auth=auth
+        base_url + project_path + "/" + endpoint, params=params, headers=headers
     ).json()
 
 
 def post(endpoint, body):
-    return requests.post(base_url + endpoint, json=body, auth=auth)
+    return requests.post(base_url + endpoint, json=body, headers=headers)
 
 
 def put(endpoint, body):
-    return requests.put(base_url + endpoint, json=body, auth=auth)
+    return requests.put(base_url + endpoint, json=body, headers=headers)
 
 
 def get_project_id():
