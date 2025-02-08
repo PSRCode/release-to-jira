@@ -32,16 +32,17 @@ def get_project_id():
 
 
 def get_or_create_release(release_name):
-    result = get("version", {"query": release_name})
-    if result["total"] == 0:
-        return post(
-            "version",
-            {"name": release_name, "projectId": get_project_id()},
-        ).json()
-    elif result["total"] > 1:
-        raise Exception("Found multiple releases with the same name.")
-    else:
-        return result["values"][0]
+    result = get("versions", {})
+    for release in result:
+        if release["name"] == release_name:
+            # Found the release by name
+            return release["name"]
+    
+    # No release found, create a new one
+    return post(
+        "version",
+        {"name": release_name, "projectId": get_project_id(), "released": "true"},
+    ).json()
 
 
 def add_release_to_issue(release_name, issue):
