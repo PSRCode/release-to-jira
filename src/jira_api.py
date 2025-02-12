@@ -49,5 +49,8 @@ def add_release_to_issue(release_name, issue):
         f"issue/{issue}",
         {"update": {"fixVersions": [{"add": {"name": release_name}}]}},
     )
-    response.raise_for_status()
+    try:
+        response.raise_for_status()
+    except Exception as ex:
+        print("Error updating issue", issue, ex)
     return response.status_code == 204
