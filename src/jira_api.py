@@ -5,7 +5,6 @@ from requests.auth import HTTPBasicAuth
 
 BASE = os.environ["INPUT_JIRA_SERVER"]
 PROJECT = os.environ["INPUT_JIRA_PROJECT"]
-USER = os.environ["INPUT_JIRA_USER"]
 TOKEN = os.environ["INPUT_JIRA_TOKEN"]
 
 base_url = f"{BASE}/rest/api/2/"
