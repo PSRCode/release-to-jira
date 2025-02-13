@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: Medsien/release-to-jira@main
+      - uses: psrcode/release-to-jira@main
         with:
           jira_server: 'https://company.atlassian.net'
           jira_project: 'PRJ'
