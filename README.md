@@ -34,6 +34,5 @@ jobs:
         with:
           jira_server: 'https://company.atlassian.net'
           jira_project: 'PRJ'
-          jira_user: 'user@company.com'
           jira_token: '${{ secrets.JIRA_TOKEN }}'
 ```
